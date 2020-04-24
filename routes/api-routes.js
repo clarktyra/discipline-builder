@@ -30,6 +30,20 @@ module.exports = function(app) {
       });
   });
 
+  app.post("/api/choices", function(req, res) {
+    db.Choices.create({
+      temptation: req.body.temptation,
+      discipline: req.body.discipline,
+      choice: req.body.choice
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
