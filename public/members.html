@@ -22,10 +22,30 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
+        <!-- <h2>Welcome <span class="member-name"></span></h2> -->
+        <h1>Discipline Builder</h1>
       </div>
     </div>
   </div>
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">TEMPTATION: What do you want to do?</label>
+      <textarea class="form-control" id="wantToDo" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">DISCIPLINE: What should you do?</label>
+      <textarea class="form-control" id="ShouldDo" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">CHOICE: Which you chose?</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>TEMPTATION</option>
+        <option>DISCIPLINE</option>
+
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">submit</button>
+  </form>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
