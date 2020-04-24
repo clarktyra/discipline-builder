@@ -31,17 +31,23 @@ module.exports = function(app) {
   });
 
   app.post("/api/choices", function(req, res) {
-    db.Choices.create({
-      temptation: req.body.temptation,
-      discipline: req.body.discipline,
-      choice: req.body.choice
-    })
-      .then(function() {
-        res.redirect(307, "/api/login");
+    console.log(req.user.id);
+    if (!req.user) {
+      res.json({});
+    } else {
+      db.Choices.create({
+        temptation: req.body.temptation,
+        discipline: req.body.discipline,
+        choice: req.body.choice,
+        UserId: req.user.id
       })
-      .catch(function(err) {
-        res.status(401).json(err);
-      });
+        .then(function(dbChoice) {
+          res.json(dbChoice);
+        })
+        .catch(function(err) {
+          res.status(401).json(err);
+        });
+    }
   });
 
   // Route for logging user out

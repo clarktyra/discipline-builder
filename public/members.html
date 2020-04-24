@@ -22,7 +22,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <!-- <h2>Welcome <span class="member-name"></span></h2> -->
+        <h2>Welcome <span class="member-name"></span></h2>
         <h1>Discipline Builder</h1>
       </div>
     </div>
@@ -34,17 +34,16 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">DISCIPLINE: What should you do?</label>
-      <textarea class="form-control" id="ShouldDo" rows="3"></textarea>
+      <textarea class="form-control" id="shouldDo" rows="3"></textarea>
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">CHOICE: Which you chose?</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>TEMPTATION</option>
-        <option>DISCIPLINE</option>
-
+      <select class="form-control" id="choiceDo">
+        <option value="true">DISCIPLINE</option>
+        <option value="false">TEMPTATION</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary mb-2">submit</button>
+    <button type="submit"  class="btn btn-primary mb-2">submit</button>
   </form>
   <table class="table table-hover">
     <thead>
