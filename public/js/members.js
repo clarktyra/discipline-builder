@@ -14,9 +14,30 @@ $(document).ready(function() {
 
   $.get("/api/user_data").then(function(data) {
     console.log(data);
+    console.log(data[0].createdAt);
+    let test = new Date(data[0].createdAt);
+    console.log(
+      test.getMonth() +
+        "/" +
+        test.getDate() +
+        " " +
+        test.getHours() +
+        ":" +
+        test.getMinutes()
+    );
+    console.log(test.getMinutes());
     data.forEach(element => {
       var newTr = $("<tr>");
-      newTr.append("<th>" + element.id + "</th>");
+      let test = new Date(element.createdAt);
+      time =
+        test.getMonth() + "/" + test.getDate() + " " + test.getHours() + ":";
+      if (test.getMinutes() < 10) {
+        time += "0" + test.getMinutes();
+      } else {
+        time += test.getMinutes();
+      }
+
+      newTr.append("<th>" + time + "</th>");
       newTr.append("<td>" + element.temptation + "</td>");
       newTr.append("<td>" + element.discipline + "</td>");
       if (element.choice === true) {

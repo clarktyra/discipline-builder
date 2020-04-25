@@ -72,14 +72,19 @@ module.exports = function(app) {
   // });
 
   app.get("/api/user_data", function(req, res) {
-    db.Choices.findAll({
-      where: {
-        UserId: req.user.id
-      },
-      order: [["id", "DESC"]],
-      limit: 5
-    }).then(function(choicesData) {
-      res.json(choicesData);
-    });
+    console.log(req.user.id);
+    if (!req.user) {
+      res.json({});
+    } else {
+      db.Choices.findAll({
+        where: {
+          UserId: req.user.id
+        },
+        order: [["id", "DESC"]],
+        limit: 5
+      }).then(function(choicesData) {
+        res.json(choicesData);
+      });
+    }
   });
 };
