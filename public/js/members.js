@@ -13,7 +13,6 @@ $(document).ready(function() {
   // });
 
   $.get("/api/user_data").then(function(data) {
-    // also grab all their posts data
     console.log(data);
     data.forEach(element => {
       var newTr = $("<tr>");
@@ -25,8 +24,7 @@ $(document).ready(function() {
       } else {
         newTr.append("<td class='bg-danger'>TEMPTATION</td>");
       }
-      console.log(newTr);
-      cTable.prepend(newTr);
+      cTable.append(newTr);
     });
   });
 

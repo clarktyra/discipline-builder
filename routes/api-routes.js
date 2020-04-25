@@ -75,7 +75,9 @@ module.exports = function(app) {
     db.Choices.findAll({
       where: {
         UserId: req.user.id
-      }
+      },
+      order: [["id", "DESC"]],
+      limit: 5
     }).then(function(choicesData) {
       res.json(choicesData);
     });
