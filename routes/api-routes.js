@@ -1,6 +1,8 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -73,15 +75,20 @@ module.exports = function(app) {
 
   app.get("/api/user_data", function(req, res) {
     console.log(req.user.id);
+    const TODAY_START = new Date().setHours(0, 0, 0, 0);
+    const NOW = new Date();
     if (!req.user) {
       res.json({});
     } else {
       db.Choices.findAll({
         where: {
-          UserId: req.user.id
+          UserId: req.user.id,
+          createdAt: {
+            [Op.gt]: TODAY_START,
+            [Op.lt]: NOW
+          }
         },
-        order: [["id", "DESC"]],
-        limit: 5
+        order: [["id", "DESC"]]
       }).then(function(choicesData) {
         res.json(choicesData);
       });
