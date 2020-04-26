@@ -2,3 +2,33 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.color-primary-0 { color: #54F4AB }	/* Main Primary color */
+.color-primary-1 { color: #F2FEF9 }
+.color-primary-2 { color: #95F7CA }
+.color-primary-3 { color: #18F490 }
+.color-primary-4 { color: #00F284 }
+
+.color-secondary-1-0 { color: #FFBC58 }	/* Main Secondary color (1) */
+.color-secondary-1-1 { color: #FFFAF3 }
+.color-secondary-1-2 { color: #FFD79A }
+.color-secondary-1-3 { color: #FFA319 }
+.color-secondary-1-4 { color: #FF9900 }
+
+.color-secondary-2-0 { color: #FA5698 }	/* Main Secondary color (2) */
+.color-secondary-2-1 { color: #FFF3F7 }
+.color-secondary-2-2 { color: #FB98C0 }
+.color-secondary-2-3 { color: #FA1873 }
+.color-secondary-2-4 { color: #F90064 }
+
+body {
+ background: darkgrey
+}
+
+canvas {
+  width: 50%
+}
+.btn {
+  background-color: #FFBC58;
+  border-color: #FFBC58;
+}

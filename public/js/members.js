@@ -3,6 +3,7 @@ $(document).ready(function() {
   var dics = $("#shouldDo");
   var choi = $("#choiceDo");
   var cTable = $("#choicesTable");
+  var tableHead = $("#tableHead");
 
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
@@ -25,14 +26,14 @@ $(document).ready(function() {
         ":" +
         test.getMinutes()
     );
+    tableHead.text(test.getMonth() + "/" + test.getDate())
     console.log(test.getMinutes());
     var dataDis = 0;
     var dataCho = 0;
     data.forEach(element => {
       var newTr = $("<tr>");
       let test = new Date(element.createdAt);
-      time =
-        test.getMonth() + "/" + test.getDate() + " " + test.getHours() + ":";
+      time = test.getHours() + ":";
       if (test.getMinutes() < 10) {
         time += "0" + test.getMinutes();
       } else {
@@ -43,10 +44,10 @@ $(document).ready(function() {
       newTr.append("<td>" + element.temptation + "</td>");
       newTr.append("<td>" + element.discipline + "</td>");
       if (element.choice === true) {
-        newTr.append("<td class='bg-success'>DISCIPLINE</td>");
+        newTr.append("<td style='background-color: #54F4AB'>Discipline</td>");
         dataDis++;
       } else {
-        newTr.append("<td class='bg-danger'>TEMPTATION</td>");
+        newTr.append("<td style='background-color: #FA5698'>Temptation</td>");
         dataCho++;
       }
       cTable.append(newTr);
@@ -56,7 +57,7 @@ $(document).ready(function() {
       datasets: [
         {
           data: [dataDis, dataCho],
-          backgroundColor: ["rgb(40, 182, 44)", "rgb(255, 65, 54)"]
+          backgroundColor: ["#54F4AB", "#FA5698"]
         }
       ],
 

@@ -40,13 +40,15 @@
               <option value="false">TEMPTATION</option>
             </select>
           </div>
-          <button type="submit"  class="btn btn-primary mb-2">submit</button>
+          <button type="submit"  class="btn mb-2">submit</button>
         </form>
+        <canvas id="myChart" width="200" height="200"></canvas>
+
       </div>
       <div class="col-md-6 col-lg-6 ">
 
           <table class="table table-hover">
-            <thead>
+            <thead > <span id=tableHead></span>
               <tr>
                 <th scope="col">Time</th>
                 <th scope="col">TEMPTATION</th>
@@ -57,7 +59,6 @@
             <tbody id="choicesTable">
             </tbody>
           </table>
-          <canvas id="myChart" width="400" height="400"></canvas>
         </div>
     </div>
   </div>
