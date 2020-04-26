@@ -25,9 +25,9 @@ body {
  background: darkgrey
 }
 
-canvas {
-  width: 50%
-}
+/* #theTableSection {
+  visibility: hidden;
+} */
 .btn {
   background-color: #FFBC58;
   border-color: #FFBC58;

@@ -12,7 +12,8 @@ $(document).ready(function() {
   //   // also grab all their posts data
   //   console.log(data)
   // });
-
+  let test2 = new Date();
+  tableHead.text(test2.getMonth() + "/" + test2.getDate());
   $.get("/api/user_data").then(function(data) {
     console.log(data);
     console.log(data[0].createdAt);
@@ -26,7 +27,6 @@ $(document).ready(function() {
         ":" +
         test.getMinutes()
     );
-    tableHead.text(test.getMonth() + "/" + test.getDate())
     console.log(test.getMinutes());
     var dataDis = 0;
     var dataCho = 0;
