@@ -87,4 +87,18 @@ module.exports = function(app) {
       });
     }
   });
+
+  // app.get("/api/sum", function(req, res) {
+  //   // console.log(req.user.id);
+  //   db.Choices.sum("choice", { where: { UserId: req.user.id } }).then(function(
+  //     sum
+  //   ) {
+  //     res.json(sum);
+  //   });
+  // //   db.Choices.count("choice", { where: { UserId: req.user.id } }).then(
+  // //     function(count) {
+  // //       res.json(count);
+  // //     }
+  // //   );
+  // });
 };

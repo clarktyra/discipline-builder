@@ -26,6 +26,8 @@ $(document).ready(function() {
         test.getMinutes()
     );
     console.log(test.getMinutes());
+    var dataDis = 0;
+    var dataCho = 0;
     data.forEach(element => {
       var newTr = $("<tr>");
       let test = new Date(element.createdAt);
@@ -42,10 +44,30 @@ $(document).ready(function() {
       newTr.append("<td>" + element.discipline + "</td>");
       if (element.choice === true) {
         newTr.append("<td class='bg-success'>DISCIPLINE</td>");
+        dataDis++;
       } else {
         newTr.append("<td class='bg-danger'>TEMPTATION</td>");
+        dataCho++;
       }
       cTable.append(newTr);
+    });
+
+    var chartData = {
+      datasets: [
+        {
+          data: [dataDis, dataCho],
+          backgroundColor: ["rgb(40, 182, 44)", "rgb(255, 65, 54)"]
+        }
+      ],
+
+      // These labels appear in the legend and in the tooltips when hovering different arcs
+      labels: ["Discicpline", "Temptation"]
+    };
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myDoughnutChart = new Chart(ctx, {
+      type: "doughnut",
+      data: chartData
+      // options: options
     });
   });
 
@@ -69,4 +91,8 @@ $(document).ready(function() {
   }
 
   $(document).on("submit", handleSubmit);
+
+  // $.get("/api/sum").then(function(data) {
+  //   console.log("data123: ", data);
+  // });
 });
