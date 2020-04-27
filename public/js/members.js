@@ -13,7 +13,8 @@ $(document).ready(function() {
   //   console.log(data)
   // });
   let test2 = new Date();
-  tableHead.text(test2.getMonth() + "/" + test2.getDate());
+  console.log(test2);
+  tableHead.text(test2.getMonth() + 1 + "/" + test2.getDate());
   $.get("/api/user_data").then(function(data) {
     console.log(data);
     console.log(data[0].createdAt);
