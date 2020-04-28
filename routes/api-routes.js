@@ -95,6 +95,22 @@ module.exports = function(app) {
     }
   });
 
+  app.get("/api/hisoty", function(req, res) {
+    console.log(req.user.id);
+    if (!req.user) {
+      res.json({});
+    } else {
+      db.Choices.findAll({
+        where: {
+          UserId: req.user.id
+        },
+        order: [["id", "DESC"]]
+      }).then(function(choicesData) {
+        res.json(choicesData);
+      });
+    }
+  });
+
   // app.get("/api/sum", function(req, res) {
   //   // console.log(req.user.id);
   //   db.Choices.sum("choice", { where: { UserId: req.user.id } }).then(function(
