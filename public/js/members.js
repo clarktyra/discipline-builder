@@ -1,7 +1,10 @@
+var temp = $("#wantToDo");
+var dics = $("#shouldDo");
+var choi = $("#choiceDo");
 $(document).ready(function() {
-  var temp = $("#wantToDo");
-  var dics = $("#shouldDo");
-  var choi = $("#choiceDo");
+  // var temp = $("#wantToDo");
+  // var dics = $("#shouldDo");
+  // var choi = $("#choiceDo");
   var cTable = $("#choicesTable");
   var tableHead = $("#tableHead");
 
@@ -73,28 +76,28 @@ $(document).ready(function() {
     });
   });
 
-  function handleSubmit() {
-    event.preventDefault();
-    if (!temp.val() || !dics.val() || !choi.val()) {
-      return;
-    }
-    var theChoice = {
-      temptation: temp.val(),
-      discipline: dics.val(),
-      choice: choi.val()
-    };
-    console.log(theChoice);
-    $.post("/api/choices", theChoice, function() {
-      // window.location.href = "/members";
-      console.log("success");
-    }).then(function() {
-      window.location.reload();
-    });
-  }
-
-  $(document).on("submit", handleSubmit);
-
   // $.get("/api/sum").then(function(data) {
   //   console.log("data123: ", data);
   // });
 });
+
+function handleSubmit() {
+  event.preventDefault();
+  if (!temp.val() || !dics.val() || !choi.val()) {
+    return;
+  }
+  var theChoice = {
+    temptation: temp.val(),
+    discipline: dics.val(),
+    choice: choi.val()
+  };
+  console.log(theChoice);
+  $.post("/api/choices", theChoice, function() {
+    window.location.href = "/members";
+    console.log("success");
+  }).then(function() {
+    window.location.replace("/members");
+  });
+}
+
+$(document).on("submit", handleSubmit);
