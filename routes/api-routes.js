@@ -76,8 +76,6 @@ module.exports = function(app) {
   app.get("/api/user_data", function(req, res) {
     console.log(req.user.id);
     const TODAY_START = new Date().setHours(0, 0, 0, 0);
-    const NOW = new Date();
-    NOW.setSeconds(NOW.getSeconds() + 1);
     if (!req.user) {
       res.json({});
     } else {
