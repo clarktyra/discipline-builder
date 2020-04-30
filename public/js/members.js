@@ -3,7 +3,7 @@ var dics = $("#shouldDo");
 var choi = $("#choiceDo");
 $(document).ready(function() {
   var lineData = [50];
-  var labelsData = ["X"];
+  var labelsData = [0];
   // var temp = $("#wantToDo");
   // var dics = $("#shouldDo");
   // var choi = $("#choiceDo");
@@ -36,7 +36,7 @@ $(document).ready(function() {
     console.log(test.getMinutes());
     var dataDis = 0;
     var discTemp = 0;
-    let index = 0;
+    let index = 1;
     data.forEach(element => {
       var newTr = $("<tr>");
       let test = new Date(element.createdAt);
@@ -79,7 +79,7 @@ $(document).ready(function() {
       }
       labelsData.push(index);
       index++;
-      var lineDataPoint = Math.round((dataDis / index) * 100);
+      var lineDataPoint = Math.round((dataDis / (index - 1)) * 100);
       console.log(dataDis, index, lineDataPoint);
       lineData.push(lineDataPoint);
       console.log(lineData);
