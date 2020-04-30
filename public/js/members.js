@@ -2,8 +2,8 @@ var temp = $("#wantToDo");
 var dics = $("#shouldDo");
 var choi = $("#choiceDo");
 $(document).ready(function() {
-  var lineData = [0];
-  var labelsData = ["l"];
+  var lineData = [50];
+  var labelsData = ["X"];
   // var temp = $("#wantToDo");
   // var dics = $("#shouldDo");
   // var choi = $("#choiceDo");
@@ -36,6 +36,7 @@ $(document).ready(function() {
     console.log(test.getMinutes());
     var dataDis = 0;
     var discTemp = 0;
+    let index = 0;
     data.forEach(element => {
       var newTr = $("<tr>");
       let test = new Date(element.createdAt);
@@ -53,16 +54,33 @@ $(document).ready(function() {
         newTr.append(
           "<td style='background-color: #54F4AB; font-weight: bold'>Discipline</td>"
         );
-        dataDis++;
+        // dataDis++;
       } else {
         newTr.append(
           "<td style='background-color: #FA5698; font-weight: bold'>Temptation</td>"
         );
+        // discTemp++;
+      }
+      cTable.prepend(newTr);
+      // labelsData.push(index);
+      // index++;
+      // var lineDataPoint = Math.round((dataDis / index) * 100);
+      // console.log(dataDis, index, lineDataPoint);
+      // lineData.push(lineDataPoint);
+      // console.log(lineData);
+    });
+
+    var reversedData = data.reverse();
+    reversedData.forEach(element => {
+      if (element.choice === true) {
+        dataDis++;
+      } else {
         discTemp++;
       }
-      cTable.append(newTr);
-      labelsData.push("l");
-      var lineDataPoint = Math.round((dataDis / (dataDis + discTemp)) * 100);
+      labelsData.push(index);
+      index++;
+      var lineDataPoint = Math.round((dataDis / index) * 100);
+      console.log(dataDis, index, lineDataPoint);
       lineData.push(lineDataPoint);
       console.log(lineData);
     });
