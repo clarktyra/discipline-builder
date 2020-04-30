@@ -2,8 +2,8 @@ var temp = $("#wantToDo");
 var dics = $("#shouldDo");
 var choi = $("#choiceDo");
 $(document).ready(function() {
-  var lineData = [];
-  var labelsData = [];
+  var lineData = [0];
+  var labelsData = ["l"];
   // var temp = $("#wantToDo");
   // var dics = $("#shouldDo");
   // var choi = $("#choiceDo");
@@ -35,7 +35,7 @@ $(document).ready(function() {
     );
     console.log(test.getMinutes());
     var dataDis = 0;
-    var dataCho = 0;
+    var discTemp = 0;
     data.forEach(element => {
       var newTr = $("<tr>");
       let test = new Date(element.createdAt);
@@ -58,18 +58,19 @@ $(document).ready(function() {
         newTr.append(
           "<td style='background-color: #FA5698; font-weight: bold'>Temptation</td>"
         );
-        dataCho++;
+        discTemp++;
       }
       cTable.append(newTr);
       labelsData.push("l");
-      lineData.push(((dataDis + 0.00001) / (dataCho + 0.00001) / 2).toFixed(2));
+      var lineDataPoint = Math.round((dataDis / (dataDis + discTemp)) * 100);
+      lineData.push(lineDataPoint);
       console.log(lineData);
     });
 
     var chartData = {
       datasets: [
         {
-          data: [dataDis, dataCho],
+          data: [dataDis, discTemp],
           backgroundColor: ["#54F4AB", "#FA5698"]
         }
       ],
@@ -84,32 +85,58 @@ $(document).ready(function() {
       // options: options
     });
 
-    // var ctx = document.getElementById("myLineChart").getContext("2d");
+    var ctx2 = document.getElementById("myLineChart").getContext("2d");
     // var myLineChart = new Chart(ctx, {
     //   type: "line",
-    //   data: lineData
-    //   // options: options
-    // });
-    // new Chart(document.getElementById("myLineChart"), {
-    //   type: "line",
-    //   data: {
-    //     labels: labelsData,
-    //     datasets: [
-    //       {
-    //         data: lineData,
-    //         label: "Discipline Ratio",
-    //         borderColor: "#3e95cd",
-    //         fill: false
-    //       }
-    //     ]
-    //   },
+    //   data: lineData,
     //   options: {
-    //     title: {
-    //       display: true,
-    //       text: "World population per region (in millions)"
+    //     scales: {
+    //       yAxes: [
+    //         {
+    //           // beginAtZero: true
+    //           max: 100,
+    //           min: 0
+    //         }
+    //       ]
     //     }
     //   }
     // });
+
+    new Chart(ctx2, {
+      type: "line",
+      data: {
+        labels: labelsData,
+        datasets: [
+          {
+            data: lineData,
+            label: "Discipline Ratio",
+            borderColor: "#54F4AB",
+            backgroundColor: "#54F4AB",
+            fill: false
+          }
+        ]
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              gridLines: {
+                zeroLineColor: "black",
+                zeroLineWidth: 2
+              },
+              ticks: {
+                min: 0,
+                max: 100,
+                stepSize: 25
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Discipline Ratio"              }
+            }
+          ]
+        }
+      }
+    });
   });
 
   // $.get("/api/sum").then(function(data) {
