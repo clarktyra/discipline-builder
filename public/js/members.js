@@ -17,7 +17,7 @@ $(document).ready(function() {
   // });
   let test2 = new Date();
   console.log(test2);
-  tableHead.text(test2.getMonth() + 1 + "/" + test2.getDate());
+  // tableHead.text(test2.getMonth() + 1 + "/" + test2.getDate());
   $.get("/api/user_data").then(function(data) {
     console.log(data);
     console.log(data[0].createdAt);
@@ -48,10 +48,14 @@ $(document).ready(function() {
       newTr.append("<td>" + element.temptation + "</td>");
       newTr.append("<td>" + element.discipline + "</td>");
       if (element.choice === true) {
-        newTr.append("<td style='background-color: #54F4AB'>Discipline</td>");
+        newTr.append(
+          "<td style='background-color: #54F4AB; font-weight: bold'>Discipline</td>"
+        );
         dataDis++;
       } else {
-        newTr.append("<td style='background-color: #FA5698'>Temptation</td>");
+        newTr.append(
+          "<td style='background-color: #FA5698; font-weight: bold'>Temptation</td>"
+        );
         dataCho++;
       }
       cTable.append(newTr);
