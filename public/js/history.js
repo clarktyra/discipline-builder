@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var cTable = $("#choicesTable");
 
-  $.get("/api/user_data").then(function(data) {
+  $.get("/api/history").then(function(data) {
     console.log(data);
     console.log(data[0].createdAt);
     let test = new Date(data[0].createdAt);

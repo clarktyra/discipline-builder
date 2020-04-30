@@ -2,6 +2,8 @@ var temp = $("#wantToDo");
 var dics = $("#shouldDo");
 var choi = $("#choiceDo");
 $(document).ready(function() {
+  var lineData = [];
+  var labelsData = [];
   // var temp = $("#wantToDo");
   // var dics = $("#shouldDo");
   // var choi = $("#choiceDo");
@@ -59,6 +61,9 @@ $(document).ready(function() {
         dataCho++;
       }
       cTable.append(newTr);
+      labelsData.push("l");
+      lineData.push(((dataDis + 0.00001) / (dataCho + 0.00001) / 2).toFixed(2));
+      console.log(lineData);
     });
 
     var chartData = {
@@ -78,6 +83,33 @@ $(document).ready(function() {
       data: chartData
       // options: options
     });
+
+    // var ctx = document.getElementById("myLineChart").getContext("2d");
+    // var myLineChart = new Chart(ctx, {
+    //   type: "line",
+    //   data: lineData
+    //   // options: options
+    // });
+    // new Chart(document.getElementById("myLineChart"), {
+    //   type: "line",
+    //   data: {
+    //     labels: labelsData,
+    //     datasets: [
+    //       {
+    //         data: lineData,
+    //         label: "Discipline Ratio",
+    //         borderColor: "#3e95cd",
+    //         fill: false
+    //       }
+    //     ]
+    //   },
+    //   options: {
+    //     title: {
+    //       display: true,
+    //       text: "World population per region (in millions)"
+    //     }
+    //   }
+    // });
   });
 
   // $.get("/api/sum").then(function(data) {

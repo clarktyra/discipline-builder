@@ -93,7 +93,7 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/api/hisoty", function(req, res) {
+  app.get("/api/history", function(req, res) {
     console.log(req.user.id);
     if (!req.user) {
       res.json({});
