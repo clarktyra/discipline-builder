@@ -131,7 +131,8 @@ $(document).ready(function() {
               },
               scaleLabel: {
                 display: true,
-                labelString: "Discipline Ratio"              }
+                labelString: "Discipline Ratio"
+              }
             }
           ]
         }
