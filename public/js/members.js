@@ -1,51 +1,37 @@
 var temp = $("#wantToDo");
 var dics = $("#shouldDo");
 var choi = $("#choiceDo");
+const TODAY_START = new Date().setHours(0, 0, 0, 0);
 $(document).ready(function() {
   var lineData = [50];
   var labelsData = [0];
-  // var temp = $("#wantToDo");
-  // var dics = $("#shouldDo");
-  // var choi = $("#choiceDo");
   var cTable = $("#choicesTable");
-  var tableHead = $("#tableHead");
-
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  // $.get("/api/user_data").then(function(data) {
-  //   $(".member-name").text(data.email);
-  //   // also grab all their posts data
-  //   console.log(data)
-  // });
-  let test2 = new Date();
-  console.log(test2);
-  // tableHead.text(test2.getMonth() + 1 + "/" + test2.getDate());
   $.get("/api/user_data").then(function(data) {
-    console.log(data);
-    console.log(data[0].createdAt);
-    let test = new Date(data[0].createdAt);
-    console.log(
-      test.getMonth() +
-        "/" +
-        test.getDate() +
-        " " +
-        test.getHours() +
-        ":" +
-        test.getMinutes()
-    );
-    console.log(test.getMinutes());
     var dataDis = 0;
     var discTemp = 0;
     let index = 1;
     data.forEach(element => {
       var newTr = $("<tr>");
       let test = new Date(element.createdAt);
-      time = test.getHours() + ":";
-      if (test.getMinutes() < 10) {
-        time += "0" + test.getMinutes();
+      var hours, minutes, amOrPm;
+      hours = test.getHours();
+      if (hours < 12) {
+        amOrPm = " am";
       } else {
-        time += test.getMinutes();
+        amOrPm = " pm";
       }
+      if (hours === 0 || hours === 00) {
+        hours = 12;
+      }
+      if (hours > 12) {
+        hours -= 12;
+      }
+      minutes = test.getMinutes();
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      }
+
+      var time = hours + ":" + minutes + amOrPm;
 
       newTr.append("<th>" + time + "</th>");
       newTr.append("<td>" + element.temptation + "</td>");
@@ -54,20 +40,12 @@ $(document).ready(function() {
         newTr.append(
           "<td style='background-color: #54F4AB; font-weight: bold'>Discipline</td>"
         );
-        // dataDis++;
       } else {
         newTr.append(
           "<td style='background-color: #FA5698; font-weight: bold'>Temptation</td>"
         );
-        // discTemp++;
       }
       cTable.prepend(newTr);
-      // labelsData.push(index);
-      // index++;
-      // var lineDataPoint = Math.round((dataDis / index) * 100);
-      // console.log(dataDis, index, lineDataPoint);
-      // lineData.push(lineDataPoint);
-      // console.log(lineData);
     });
 
     var reversedData = data.reverse();
@@ -80,9 +58,7 @@ $(document).ready(function() {
       labelsData.push(index);
       index++;
       var lineDataPoint = Math.round((dataDis / (index - 1)) * 100);
-      console.log(dataDis, index, lineDataPoint);
       lineData.push(lineDataPoint);
-      console.log(lineData);
     });
 
     var chartData = {
@@ -92,34 +68,14 @@ $(document).ready(function() {
           backgroundColor: ["#54F4AB", "#FA5698"]
         }
       ],
-
-      // These labels appear in the legend and in the tooltips when hovering different arcs
       labels: ["Discicpline", "Temptation"]
     };
     var ctx = document.getElementById("myChart").getContext("2d");
     var myDoughnutChart = new Chart(ctx, {
       type: "doughnut",
       data: chartData
-      // options: options
     });
-
     var ctx2 = document.getElementById("myLineChart").getContext("2d");
-    // var myLineChart = new Chart(ctx, {
-    //   type: "line",
-    //   data: lineData,
-    //   options: {
-    //     scales: {
-    //       yAxes: [
-    //         {
-    //           // beginAtZero: true
-    //           max: 100,
-    //           min: 0
-    //         }
-    //       ]
-    //     }
-    //   }
-    // });
-
     new Chart(ctx2, {
       type: "line",
       data: {
@@ -157,10 +113,6 @@ $(document).ready(function() {
       }
     });
   });
-
-  // $.get("/api/sum").then(function(data) {
-  //   console.log("data123: ", data);
-  // });
 });
 
 function handleSubmit() {
