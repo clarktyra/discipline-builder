@@ -2,6 +2,7 @@ var temp = $("#wantToDo");
 var dics = $("#shouldDo");
 var choi = $("#choiceDo");
 const TODAY_START = new Date().setHours(0, 0, 0, 0);
+var num = 0;
 $(document).ready(function() {
   var lineData = [50];
   var labelsData = [0];
@@ -70,11 +71,20 @@ $(document).ready(function() {
       ],
       labels: ["Discicpline", "Temptation"]
     };
+
     var ctx = document.getElementById("myChart").getContext("2d");
-    var myDoughnutChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: "doughnut",
-      data: chartData
+      data: chartData,
+      options: {
+        legend: {
+          onClick: null
+        }
+      }
     });
+
+    //start
+
     var ctx2 = document.getElementById("myLineChart").getContext("2d");
     new Chart(ctx2, {
       type: "line",
@@ -104,14 +114,19 @@ $(document).ready(function() {
                 stepSize: 25
               },
               scaleLabel: {
-                display: true,
-                labelString: "Discipline Ratio"
+                display: true
+                // labelString: "Discipline Ratio"
               }
             }
           ]
+        },
+        legend: {
+          onClick: null
         }
       }
     });
+
+    //end
   });
 });
 
@@ -133,5 +148,27 @@ function handleSubmit() {
     window.location.replace("/members");
   });
 }
-
 $(document).on("submit", handleSubmit);
+
+//chart begin
+var myChart = document.getElementById("myChart");
+var myLineChart = document.getElementById("myLineChart");
+toggle();
+function toggle() {
+  console.log("hellor");
+  if (myChart.style.visibility === "visible") {
+    myChart.style.visibility = "hidden";
+    myLineChart.style.visibility = "visible";
+  } else {
+    myChart.style.visibility = "visible";
+    myLineChart.style.visibility = "hidden";
+  }
+}
+
+//chart end
+
+$(".test").click(function() {
+  console.log("hello");
+  toggle();
+  // window.location.replace("/members");
+});

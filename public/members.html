@@ -1,61 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Discipline Builder</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
+    />
+    <link href="stylesheets/style.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <title>Discipline Builder</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
-</head>
-
-<body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-      <a class="navbar-brand" href="/members">
-        Today
-      </a>
-      <a class="navbar-brand" href="/history">
-        History
-      </a>
-    </div>
-  </div>
-</nav>
-  <div class="container">
-      <h1 class="centerTitle">Today</h1>
-    <div class="row">
-      <div class="col-md-4 col-lg-4 ">
-        <!-- <h2>Welcome <span class="member-name"></span></h2> -->
-        <h2 class="centerTitle">Post</h2>
-        <form>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1"><span style="font-weight: bold; font-size: 25px; ">TEMPTATION</span> </label>
-            <textarea class="form-control" id="wantToDo" rows="3" placeholder="What you want to do is..."></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1"><span style="font-weight: bold; font-size: 25px;">DISCIPLINE</span> </label>
-            <textarea class="form-control" id="shouldDo" rows="3" placeholder="What you should do is..."></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1"><span style="font-weight: bold; font-size: 25px;">CHOICE</span> </label>
-            <select class="form-control" id="choiceDo">
-              <option value="true">DISCIPLINE</option>
-              <option value="false">TEMPTATION</option>
-            </select>
-          </div>
-          <button type="submit"  class="btn mb-2">submit</button>
-        </form>
-
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/logout">
+            Logout
+          </a>
+          <a class="navbar-brand" href="/members">
+            Today
+          </a>
+          <a class="navbar-brand" href="/history">
+            History
+          </a>
+        </div>
       </div>
+    </nav>
+    <div class="container">
+      <!-- <h1 class="centerTitle">Today</h1> -->
+      <div class="row">
+        <div class="col-md-4 col-lg-4 ">
+          <!-- <h2>Welcome <span class="member-name"></span></h2> -->
+          <h2 class="centerTitle">Post</h2>
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1"
+                ><span style=" font-size: 25px; ">TEMPTATION</span>
+              </label>
+              <textarea
+                class="form-control"
+                id="wantToDo"
+                rows="3"
+                placeholder="What you want to do is..."
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1"
+                ><span style=" font-size: 25px;">DISCIPLINE</span>
+              </label>
+              <textarea
+                class="form-control"
+                id="shouldDo"
+                rows="3"
+                placeholder="What you should do is..."
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1"
+                ><span style=" font-size: 25px;">CHOICE</span>
+              </label>
+              <select class="form-control" id="choiceDo">
+                <option value="true">DISCIPLINE</option>
+                <option value="false">TEMPTATION</option>
+              </select>
+            </div>
+            <button type="submit" class="btn mb-2">submit</button>
+          </form>
+        </div>
 
-      <div class="col-md-4 col-lg-4" id="theTableSection">
-        <h2 class="centerTitle">Choices</h2>
+        <div class="col-md-4 col-lg-4" id="theTableSection">
+          <h2 class="centerTitle">Choices</h2>
           <table class="table table-hover">
-            <thead > <span id=tableHead></span>
+            <thead>
+              <span id="tableHead"></span>
               <tr>
                 <th scope="col">Time</th>
                 <th scope="col">TEMPTATION</th>
@@ -63,23 +81,26 @@
                 <th scope="col">CHOICE</th>
               </tr>
             </thead>
-            <tbody id="choicesTable">
-            </tbody>
+            <tbody id="choicesTable"></tbody>
           </table>
         </div>
-        <div class="col-md-4 col-lg-4" id="">
-            <h2 class="centerTitle">Stats</h2>
-        <canvas id="myChart" width="200" height="200"></canvas>
-        <canvas id="myLineChart" width="200" height="200"></canvas>
+        <div class="col-md-4 col-lg-4">
+          <h2 class="centerTitle test" >Stats</h2>
+          <div>
+          <canvas id="myChart" class="test" width="200" height="200"></canvas>
+          <canvas id="myLineChart" class="test" width="200" height="200" ></canvas>
         </div>
+          
+        </div>
+      </div>
     </div>
-  </div>
-  
- 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
 
-</body>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/members.js"></script>
+  </body>
 </html>

@@ -29,10 +29,12 @@ body {
   visibility: hidden;
 } */
 .btn {
-  background-color: #FFBC58;
-  border-color: #FFBC58;
+  background-color: #5DB5F2;
+  border-color: #5DB5F2;
 }
 
 .centerTitle {
   text-align: center
 }
+#myChart{position:absolute}
+#myLineChart{position:absolute}
