@@ -46,7 +46,7 @@ $(document).ready(function() {
           "<td style='background-color: #FA5698; font-weight: bold'>Temptation</td>"
         );
       }
-      cTable.prepend(newTr);
+      cTable.append(newTr);
     });
 
     var reversedData = data.reverse();
