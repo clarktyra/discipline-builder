@@ -42,3 +42,7 @@ body {
 }
 #myChart{position:absolute}
 #myLineChart{position:absolute}
+
+.navbar-header {
+  float: none;
+}
