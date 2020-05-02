@@ -142,10 +142,10 @@ function handleSubmit() {
   };
   console.log(theChoice);
   $.post("/api/choices", theChoice, function() {
-    window.location.href = "/members";
+    window.location.href = "/today";
     console.log("success");
   }).then(function() {
-    window.location.replace("/members");
+    window.location.replace("/today");
   });
 }
 $(document).on("submit", handleSubmit);
