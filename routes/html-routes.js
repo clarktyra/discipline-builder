@@ -30,4 +30,8 @@ module.exports = function(app) {
   app.get("/history", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/history.html"));
   });
+
+  app.get("/info", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/info.html"));
+  });
 };
