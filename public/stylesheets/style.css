@@ -32,6 +32,10 @@ body {
   background-color: #5DB5F2;
   border-color: #5DB5F2;
 }
+.btn-default {
+   border-style: none;
+   
+}
 
 .centerTitle {
   text-align: center
