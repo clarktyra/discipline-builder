@@ -47,3 +47,17 @@ body {
   float: none;
 }
 
+.temptationText {
+  display: none;
+}
+span:hover + .temptationText {
+  display: block;
+}
+
+.disciplineText {
+  display: none;
+}
+span:hover + .disciplineText {
+  display: block;
+}
+
