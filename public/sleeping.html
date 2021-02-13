@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Discipline Builder</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
+    />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+
+
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" >
+      <div class="container-fluid" >
+        <div class="navbar-header" >
+          <a class="navbar-brand" href="/today">
+            Today
+          </a>
+          <a class="navbar-brand" style="float:left" href="/history">
+            History
+          </a>
+          <a class="navbar-brand" style="float:left" href="/sleeping">
+            Sleeping
+          </a>
+          <a class="navbar-brand" style="float:right" href="/logout">
+            Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <!-- <h1 class="centerTitle">Today</h1> -->
+      <div class="row">
+        <div class="col-md-4 col-lg-4 ">
+          <!-- <h2>Welcome <span class="member-name"></span></h2> -->
+          <h2 class="centerTitle">Post</h2>
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1"
+                ><span style=" font-size: 25px; ">TEMPTATION</span>
+                <div class="temptationText">Acting under temptation means acting on short-term urges for enjoyment that threatens long-term goals.</div>
+              </label>
+              <textarea
+                class="form-control"
+                id="wantToDo"
+                rows="3"
+                placeholder="What you want to do is..."
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1"
+                ><span style=" font-size: 25px;">DISCIPLINE</span>
+                <div class="disciplineText">Acting with discipline means doing things that align with long-term goals in a controlled and habitual way.</div>
+              </label>
+              <textarea
+                class="form-control"
+                id="shouldDo"
+                rows="3"
+                placeholder="What you should do is..."
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1"
+                ><span style=" font-size: 25px;">CHOICE</span>
+              </label>
+              <select class="form-control" id="choiceDo">
+                <option value="true">DISCIPLINE</option>
+                <option value="false">TEMPTATION</option>
+              </select>
+            </div>
+            <button type="submit" class="btn mb-2">submit</button>
+          </form>
+        </div>
+
+        <div class="col-md-4 col-lg-4" id="theTableSection">
+          <h2 class="centerTitle">Choices</h2>
+          <table class="table table-hover">
+            <thead>
+              <span id="tableHead"></span>
+              <tr>
+                <th scope="col">Time</th>
+                <th scope="col">TEMPTATION</th>
+                <th scope="col">DISCIPLINE</th>
+                <th scope="col">CHOICE</th>
+              </tr>
+            </thead>
+            <tbody id="choicesTable"></tbody>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <h2 class="centerTitle" >Stats</h2>
+          <p class="centerTitle test">
+            <input checked style="border-color: none " type="checkbox" data-toggle="toggle" data-on="Donut" data-off="Line" data-onstyle="default" data-size="mini">
+          </p>
+          
+          <div>
+          <canvas id="myChart"  width="200" height="200"></canvas>
+          <canvas id="myLineChart"  width="200" height="200" ></canvas>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+    <script type="text/javascript" src="js/today.js"></script>
+  </body>
+</html>
