@@ -41,11 +41,11 @@
       <div class="row">
         <div class="col-md-4 col-lg-4 ">
           <!-- <h2>Welcome <span class="member-name"></span></h2> -->
-          <h2 class="centerTitle">Post</h2>
+          <h2 class="centerTitle">Sleeping</h2>
           <form>
             <div class="form-group">
               <label for="exampleFormControlTextarea1"
-                ><span style=" font-size: 25px; ">TEMPTATION</span>
+                ><span style=" font-size: 25px; ">Begin</span>
                 <div class="temptationText">Acting under temptation means acting on short-term urges for enjoyment that threatens long-term goals.</div>
               </label>
               <textarea
@@ -57,7 +57,7 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1"
-                ><span style=" font-size: 25px;">DISCIPLINE</span>
+                ><span style=" font-size: 25px;">End</span>
                 <div class="disciplineText">Acting with discipline means doing things that align with long-term goals in a controlled and habitual way.</div>
               </label>
               <textarea
@@ -69,34 +69,35 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1"
-                ><span style=" font-size: 25px;">CHOICE</span>
+                ><span style=" font-size: 25px;">Notes</span>
               </label>
               <select class="form-control" id="choiceDo">
                 <option value="true">DISCIPLINE</option>
                 <option value="false">TEMPTATION</option>
               </select>
             </div>
+            
             <button type="submit" class="btn mb-2">submit</button>
           </form>
         </div>
 
         <div class="col-md-4 col-lg-4" id="theTableSection">
-          <h2 class="centerTitle">Choices</h2>
+          <h2 class="centerTitle">Resting History</h2>
           <table class="table table-hover">
             <thead>
               <span id="tableHead"></span>
               <tr>
-                <th scope="col">Time</th>
-                <th scope="col">TEMPTATION</th>
-                <th scope="col">DISCIPLINE</th>
-                <th scope="col">CHOICE</th>
+                <th scope="col">Begin</th>
+                <th scope="col">End</th>
+                <th scope="col">Time Duration</th>
+                <th scope="col">Notes</th>
               </tr>
             </thead>
             <tbody id="choicesTable"></tbody>
           </table>
         </div>
         <div class="col-md-4 col-lg-4">
-          <h2 class="centerTitle" >Stats</h2>
+          <h2 class="centerTitle" >Analytics</h2>
           <p class="centerTitle test">
             <input checked style="border-color: none " type="checkbox" data-toggle="toggle" data-on="Donut" data-off="Line" data-onstyle="default" data-size="mini">
           </p>
