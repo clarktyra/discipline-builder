@@ -48,26 +48,37 @@
                 ><span style=" font-size: 25px; ">Begin</span>
                 <div class="temptationText">Acting under temptation means acting on short-term urges for enjoyment that threatens long-term goals.</div>
               </label>
-              <textarea
+              <input  class="form-control" type="time" id="appt" name="appt"
+       min="09:00" max="18:00" required>
+              <!-- <textarea
                 class="form-control"
                 id="wantToDo"
                 rows="3"
                 placeholder="What you want to do is..."
-              ></textarea>
+              ></textarea> -->
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1"
                 ><span style=" font-size: 25px;">End</span>
                 <div class="disciplineText">Acting with discipline means doing things that align with long-term goals in a controlled and habitual way.</div>
               </label>
-              <textarea
-                class="form-control"
-                id="shouldDo"
-                rows="3"
-                placeholder="What you should do is..."
-              ></textarea>
+              <input  class="form-control" type="time" id="appt" name="appt"
+       min="09:00" max="18:00" required>
             </div>
             <div class="form-group">
+                <label for="exampleFormControlTextarea1"
+                  ><span style=" font-size: 25px; ">Notes</span>
+                  <div class="temptationText">Acting under temptation means acting on short-term urges for enjoyment that threatens long-term goals.</div>
+                </label>
+              
+                <textarea
+                  class="form-control"
+                  id="wantToDo"
+                  rows="3"
+                  placeholder="..."
+                ></textarea>
+              </div>
+            <!-- <div class="form-group">
               <label for="exampleFormControlSelect1"
                 ><span style=" font-size: 25px;">Notes</span>
               </label>
@@ -75,7 +86,7 @@
                 <option value="true">DISCIPLINE</option>
                 <option value="false">TEMPTATION</option>
               </select>
-            </div>
+            </div> -->
             
             <button type="submit" class="btn mb-2">submit</button>
           </form>
@@ -98,14 +109,14 @@
         </div>
         <div class="col-md-4 col-lg-4">
           <h2 class="centerTitle" >Analytics</h2>
-          <p class="centerTitle test">
+          <!-- <p class="centerTitle test">
             <input checked style="border-color: none " type="checkbox" data-toggle="toggle" data-on="Donut" data-off="Line" data-onstyle="default" data-size="mini">
           </p>
           
           <div>
           <canvas id="myChart"  width="200" height="200"></canvas>
           <canvas id="myLineChart"  width="200" height="200" ></canvas>
-        </div>
+        </div> -->
           
         </div>
       </div>
