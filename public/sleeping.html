@@ -11,34 +11,35 @@
     />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 
-
     <link href="stylesheets/style.css" rel="stylesheet" />
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-
+    <link
+      href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <nav class="navbar navbar-default" >
-      <div class="container-fluid" >
-        <div class="navbar-header" >
-            <a class="navbar-brand" href="/today">
-                Choice
-              </a>
-              <a class="navbar-brand" style="float:left" href="/history">
-                Choice History
-              </a>
-              <a class="navbar-brand" style="float:left" href="/sleeping">
-                Sleeping
-              </a>
-              <a class="navbar-brand" style="float:left" href="/eating">
-                Eating
-              </a>
-              <a class="navbar-brand" style="float:left" href="/workouts">
-                Workouts
-              </a>
-              <a class="navbar-brand" style="float:right" href="/logout">
-                Logout
-              </a>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/today">
+            Choice
+          </a>
+          <a class="navbar-brand" style="float:left" href="/history">
+            Choice History
+          </a>
+          <a class="navbar-brand" style="float:left" href="/sleeping">
+            Sleeping
+          </a>
+          <a class="navbar-brand" style="float:left" href="/eating">
+            Eating
+          </a>
+          <a class="navbar-brand" style="float:left" href="/workouts">
+            Workouts
+          </a>
+          <a class="navbar-brand" style="float:right" href="/logout">
+            Logout
+          </a>
         </div>
       </div>
     </nav>
@@ -52,10 +53,18 @@
             <div class="form-group">
               <label for="exampleFormControlTextarea1"
                 ><span style=" font-size: 25px; ">Begin</span>
-                <div class="temptationText">Acting under temptation means acting on short-term urges for enjoyment that threatens long-term goals.</div>
+                <div class="temptationText">
+                  Acting under temptation means acting on short-term urges for
+                  enjoyment that threatens long-term goals.
+                </div>
               </label>
-              <input  class="form-control" type="time" id="appt" name="appt"
-       min="09:00" max="18:00" required>
+              <input
+                class="form-control"
+                type="time"
+                id="beginTime"
+                name="appt"
+                required
+              />
               <!-- <textarea
                 class="form-control"
                 id="wantToDo"
@@ -66,24 +75,35 @@
             <div class="form-group">
               <label for="exampleFormControlTextarea1"
                 ><span style=" font-size: 25px;">End</span>
-                <div class="disciplineText">Acting with discipline means doing things that align with long-term goals in a controlled and habitual way.</div>
+                <div class="disciplineText">
+                  Acting with discipline means doing things that align with
+                  long-term goals in a controlled and habitual way.
+                </div>
               </label>
-              <input  class="form-control" type="time" id="appt" name="appt"
-       min="09:00" max="18:00" required>
+              <input
+                class="form-control"
+                type="time"
+                id="appt"
+                name="appt"
+                required
+              />
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1"
-                  ><span style=" font-size: 25px; ">Notes</span>
-                  <div class="temptationText">Acting under temptation means acting on short-term urges for enjoyment that threatens long-term goals.</div>
-                </label>
-              
-                <textarea
-                  class="form-control"
-                  id="wantToDo"
-                  rows="3"
-                  placeholder="..."
-                ></textarea>
-              </div>
+              <label for="exampleFormControlTextarea1"
+                ><span style=" font-size: 25px; ">Notes</span>
+                <div class="temptationText">
+                  Acting under temptation means acting on short-term urges for
+                  enjoyment that threatens long-term goals.
+                </div>
+              </label>
+
+              <textarea
+                class="form-control"
+                id="wantToDo"
+                rows="3"
+                placeholder="..."
+              ></textarea>
+            </div>
             <!-- <div class="form-group">
               <label for="exampleFormControlSelect1"
                 ><span style=" font-size: 25px;">Notes</span>
@@ -93,8 +113,8 @@
                 <option value="false">TEMPTATION</option>
               </select>
             </div> -->
-            
-            <button type="submit" class="btn mb-2">submit</button>
+
+            <button id="submitBtn" type="submit" class="btn mb-2">submit</button>
           </form>
         </div>
 
@@ -114,7 +134,7 @@
           </table>
         </div>
         <div class="col-md-4 col-lg-4">
-          <h2 class="centerTitle" >Analytics</h2>
+          <h2 class="centerTitle">Analytics</h2>
           <!-- <p class="centerTitle test">
             <input checked style="border-color: none " type="checkbox" data-toggle="toggle" data-on="Donut" data-off="Line" data-onstyle="default" data-size="mini">
           </p>
@@ -123,7 +143,6 @@
           <canvas id="myChart"  width="200" height="200"></canvas>
           <canvas id="myLineChart"  width="200" height="200" ></canvas>
         </div> -->
-          
         </div>
       </div>
     </div>
@@ -136,6 +155,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
-    <script type="text/javascript" src="js/today.js"></script>
+    <script type="text/javascript" src="js/sleeping.js"></script>
   </body>
 </html>
